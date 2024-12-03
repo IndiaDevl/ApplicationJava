@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy the project files into the container
 COPY . .
 
+
 # Build the application
 RUN mvn clean package -DskipTests
 
