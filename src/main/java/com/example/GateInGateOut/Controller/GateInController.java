@@ -32,9 +32,9 @@ public class GateInController {
     @Autowired
     private ServiceGateIn serviceGateIn;
     
-    private static final String SAP_API_URL = "https://my418696-api.s4hana.cloud.sap/sap/opu/odata4/sap/api_purchaseorder_2/srvd_a2x/sap/purchaseorder/0001/PurchaseOrder";
-    private static final String SAP_USERNAME = "ProductMaster";
-    private static final String SAP_PASSWORD = "ProductMaster@1234567890";
+//    private static final String SAP_API_URL = "https://my418696-api.s4hana.cloud.sap/sap/opu/odata4/sap/api_purchaseorder_2/srvd_a2x/sap/purchaseorder/0001/PurchaseOrder";
+//    private static final String SAP_USERNAME = "ProductMaster";
+//    private static final String SAP_PASSWORD = "ProductMaster@1234567890";
 
     // Endpoint to get all GateIn records
     @GetMapping("/")
@@ -91,22 +91,22 @@ public class GateInController {
     	serviceGateIn.deleteGateIn(id);
     }
     
-    // SAP API Integration: Get Purchase Orders
-    @GetMapping("/PurchaseOrders")
-    public ResponseEntity<String> getSAPData() {
-        RestTemplate restTemplate = new RestTemplate();
-
-        // Set headers with Basic Auth and CSRF Token (if required by SAP)
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth(SAP_USERNAME, SAP_PASSWORD); // Set Basic Auth for SAP
-        headers.add("X-CSRF-Token", "Fetch");
-
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
-        // Make the GET request to SAP API
-        ResponseEntity<String> response = restTemplate.exchange(SAP_API_URL, HttpMethod.GET, entity, String.class);
-
-        return response;
-    }
+//    // SAP API Integration: Get Purchase Orders
+//    @GetMapping("/PurchaseOrders")
+//    public ResponseEntity<String> getSAPData() {
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        // Set headers with Basic Auth and CSRF Token (if required by SAP)
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setBasicAuth(SAP_USERNAME, SAP_PASSWORD); // Set Basic Auth for SAP
+//        headers.add("X-CSRF-Token", "Fetch");
+//
+//        HttpEntity<String> entity = new HttpEntity<>(headers);
+//
+//        // Make the GET request to SAP API
+//        ResponseEntity<String> response = restTemplate.exchange(SAP_API_URL, HttpMethod.GET, entity, String.class);
+//
+//        return response;
+//    }
    
 } 
