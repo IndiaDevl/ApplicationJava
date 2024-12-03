@@ -1,12 +1,14 @@
-# Stage 1: Build the application
-FROM maven:3.9-openjdk-23 AS build
+# Stage 1: Build the application with a custom OpenJDK version
+FROM openjdk:23-slim AS build
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the project files into the container
 COPY . .
-
 
 # Build the application
 RUN mvn clean package -DskipTests
@@ -25,3 +27,4 @@ EXPOSE 8088
 
 # Run the application
 CMD ["java", "-jar", "GateInGateOut.jar"]
+
