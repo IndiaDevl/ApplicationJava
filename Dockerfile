@@ -20,7 +20,7 @@ FROM debian:bookworm-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY --from=build /app/target/GateInGateOut-0.0.1-SNAPSHOT.jar GateInGateOut.jar
+COPY --from=build GateInGateOut-0.0.1-SNAPSHOT.jar GateInGateOut.jar
 
 # Expose the port the application listens on
 EXPOSE 8088
