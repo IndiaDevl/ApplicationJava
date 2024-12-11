@@ -1,7 +1,11 @@
 package com.example.GateInGateOut.Controller;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,5 +75,18 @@ public class GateOutController {
     public void deleteSingleData(@PathVariable("gateout") long gateout) {
         GateOut gateOutToDelete = serviceGateOut.findById(gateout);
         serviceGateOut.deleteGateOut(gateOutToDelete);
+    }
+    
+    @PostMapping("/login")
+    public ResponseEntity<Void> login(@RequestBody Map<String, String> credentials) {
+        String username = credentials.get("username");
+        String password = credentials.get("password");
+
+        // Replace this with your authentication logic
+        if ("ProductMaster".equals(username) && "ProductMaster@1234567890".equals(password)) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 }

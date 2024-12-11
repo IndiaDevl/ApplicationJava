@@ -32,7 +32,7 @@ public class GateIn {
 	private String suppliername;
 	private long suppliercode;
 	private long purchaseorder;
-	private char potype;
+	private String potype;
 	private long invoice;
 	private Date invoicedate;
 	private String enteredby;
@@ -91,10 +91,10 @@ public class GateIn {
 	public void setPurchaseorder(long purchaseorder) {
 		this.purchaseorder = purchaseorder;
 	}
-	public char getPotype() {
+	public String getPotype() {
 		return potype;
 	}
-	public void setPotype(char potype) {
+	public void setPotype(String potype) {
 		this.potype = potype;
 	}
 	public long getInvoice() {
